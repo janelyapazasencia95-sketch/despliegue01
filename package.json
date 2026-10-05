@@ -5,10 +5,13 @@
   "author": "janelyapazasencia95-sketch <janelyapazasencia95@gmail.com>",
   "license": "MIT",
   "scripts": {
-  "dev": "nodemon index.js"
-},
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5"
+  },
   "devDependencies": {
-    "dotenv": "^18.0.5",
     "nodemon": "^3.1.14"
   }
 }

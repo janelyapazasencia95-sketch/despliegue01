@@ -6,24 +6,27 @@ const PORT = process.env.PORT || 4000;
 
 const server = http.createServer((req, res) => {
 
-    if (req.url === '/') {
-        res.writeHead(200, {
-            'Content-Type': 'text/html; charset=utf-8'
-        });
+    console.log(`${req.method} ${req.url}`);
 
-        res.end(`
+    res.writeHead(200, {
+        'Content-Type': 'text/html; charset=utf-8'
+    });
+
+    res.end(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Despliegue Node.js</title>
+        </head>
+        <body>
             <h1>Bienvenidos al curso</h1>
             <p>Aplicación desplegada correctamente en Render.</p>
-        `);
-    } else {
-        res.writeHead(404, {
-            'Content-Type': 'text/plain'
-        });
-
-        res.end('Not Found');
-    }
+        </body>
+        </html>
+    `);
 });
 
-server.listen(PORT, () => {
-    console.log('Aplicacion corriendo en puerto: ' + PORT);
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Aplicación corriendo en puerto ${PORT}`);
 });
