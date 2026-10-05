@@ -1,15 +1,29 @@
-require('dotenv').config()
+require('dotenv').config();
 
-const http = require('http')
+const http = require('http');
 
-function requestController(){
-    console.log('Bienvenidos al curso')
-}
+const PORT = process.env.PORT || 4000;
 
-const server = http.createServer(requestController)
+const server = http.createServer((req, res) => {
 
-const PORT = process.env.PORT
+    if (req.url === '/') {
+        res.writeHead(200, {
+            'Content-Type': 'text/html; charset=utf-8'
+        });
 
-server.listen(PORT, function(){
-    console.log("Aplicacion corriendo en: " + PORT)
-})
+        res.end(`
+            <h1>Bienvenidos al curso</h1>
+            <p>Aplicación desplegada correctamente en Render.</p>
+        `);
+    } else {
+        res.writeHead(404, {
+            'Content-Type': 'text/plain'
+        });
+
+        res.end('Not Found');
+    }
+});
+
+server.listen(PORT, () => {
+    console.log('Aplicacion corriendo en puerto: ' + PORT);
+});
