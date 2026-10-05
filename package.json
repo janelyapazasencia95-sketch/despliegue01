@@ -1,0 +1,14 @@
+{
+  "name": "desplegando-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "janelyapazasencia95-sketch <janelyapazasencia95@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+  "dev": "nodemon index.js"
+},
+  "devDependencies": {
+    "dotenv": "^18.0.5",
+    "nodemon": "^3.1.14"
+  }
+}
